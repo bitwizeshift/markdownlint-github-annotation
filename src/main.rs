@@ -17,6 +17,9 @@ fn main() {
     eprintln!("unable to read from stdin: {}", err);
     std::process::exit(1);
   }
+  if string.trim().is_empty() {
+    return
+  }
 
   let object: json::Value = match json::from_str(&string) {
     Err(err) => {
